@@ -1,0 +1,17 @@
+<%= div_for post do %>
+  <div class="">
+    <!-- <strong><%= h(post.title) %></strong><br /> -->
+    <strong><%= link_to post.title, post %></strong><br>
+    <sup class="text-muted">From <%= time_ago_in_words(post.created_at)%></sup><br />
+    <div class="mb pb">
+      <%= h(post.content) %>
+    </div>
+    <div class="tags">
+      <%=raw tag_links(post.all_tags) %>
+    </div>
+  </div>
+<% end %>
+<% if @admin %>
+  | <%= link_to "delete", post, method: :delete,
+                                data: { confirm: "You sure?" } %>
+<% end %>
