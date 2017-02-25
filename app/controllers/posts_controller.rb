@@ -11,7 +11,6 @@ class PostsController < ApplicationController
     if logged_in?
       @admin = current_user.admin?
     end
-
     if logged_in?
       @logged_in_user = logged_in_user
     end

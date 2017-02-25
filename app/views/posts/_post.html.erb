@@ -1,6 +1,5 @@
 <%= div_for post do %>
   <div class="">
-    <!-- <strong><%= h(post.title) %></strong><br /> -->
     <strong><%= link_to post.title, post %></strong><br>
     <sup class="text-muted">From <%= time_ago_in_words(post.created_at)%></sup><br />
     <div class="mb pb">

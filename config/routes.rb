@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get '/comments/index'
-
+  get 'comments/index'
+  get 'comments/create'
+  get 'comments/show'
 
   get 'posts/index'
   get 'tags/:tag', to: 'posts#index', as: "tag"
