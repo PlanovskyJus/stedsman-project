@@ -1,6 +1,14 @@
-<%= div_for comment do %>
-<div class="">
-  <sup class="text-muted">From <%= time_ago_in_words(comment.created_at)%></sup><br />
-  <%= h(comment.content) %>
-</div>
+<% @post.comments.reverse_each do |comment| %>
+  <sup class="text-muted">From <%= time_ago_in_words(comment.created_at)%></sup>
+    <div><%= comment.content %></div> <br>
+    <div class="">
+      <%= comment.user_id%>
+      <%= comment.author %>
+    </div>
+    <% if @correct_user || @admin %>
+      | <%= link_to "delete", comment, method: :delete,
+                                      data: { confirm: "You sure?" } %>
+        <%= link_to "test home", root_path %>
+    <% end %>
+
 <% end %>
