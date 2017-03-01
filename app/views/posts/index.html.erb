@@ -1,4 +1,9 @@
-<%= render partial: 'posts/new' %>
+<% if logged_in? %>
+  <% if current_user.admin? %>
+    <%= render partial: 'posts/new' %>
+  <% end %>
+<% end %>
+
 <br><br><br>
 <%= render partial: @posts.reverse%>
 <br><br><br>
