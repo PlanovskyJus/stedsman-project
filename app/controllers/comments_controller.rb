@@ -22,9 +22,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id #or whatever is you session name
     @comment.author = current_user.name
     if @comment.save
-      redirect_to @post
+      redirect_back(fallback_location: root_path)
     else
-      flash.now[:danger] = "error"
+      redirect_back(fallback_location: root_path)
+      flash[:danger] = "Comments must be at least 15 characters long"
     end
   end
 
