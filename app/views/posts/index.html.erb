@@ -1,4 +1,8 @@
-<%= render partial: 'posts/new' %>
+<% provide(:title, 'Home') %>
+
+<% if @admin %>
+ <%= link_to "New Post", posts_newpost_url %>
+<% end %>
 <br><br><br>
 <%= render partial: @posts.reverse%>
 <br><br><br>

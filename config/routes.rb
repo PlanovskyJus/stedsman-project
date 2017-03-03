@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   get 'comments/create'
   get 'comments/show'
   delete '/comments', to: 'comments#destroy'
-  
+
   get 'posts/index'
   get 'tags/:tag', to: 'posts#index', as: "tag"
   get 'posts/create'
   delete '/posts',  to: 'posts#destroy'
+  get 'posts/newpost'
 
   get 'partials/signin'
   get 'partials/signout'
@@ -25,6 +26,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+
+
+  get 'ajax/:action', to: 'ajax#:action', :defaults => { :format => 'json' }
 
   resources :comments
   resources :posts do

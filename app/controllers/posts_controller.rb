@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   include SessionsHelper
   before_action :admin_user, only: [:destroy, :create]
+  skip_before_filter :verify_authenticity_token
   def index
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
@@ -18,14 +19,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    respond_to do |format|
       if @post.save
-        format.js # Will search for create.js.erb
-        redirect_to root_path
+          redirect_to root_path
       else
-        format.html { render root_path }
-      end
-    end
+        flash[:danger] = "Yup, it didn't work hun"
+      end # if save
   end
 
   def show
@@ -44,7 +42,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :all_tags)
+    params.require(:post).permit(:title, :content, :all_tags, :avatar)
   end
 
   # Confirms a logged-in user.
