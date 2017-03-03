@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'comments/index'
   get 'comments/create'
   get 'comments/show'
-
+  delete '/comments', to: 'comments#destroy'
+  
   get 'posts/index'
   get 'tags/:tag', to: 'posts#index', as: "tag"
   get 'posts/create'

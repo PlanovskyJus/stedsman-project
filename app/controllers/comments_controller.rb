@@ -1,22 +1,12 @@
 class CommentsController < ApplicationController
   include SessionsHelper
-  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user, only: [:destroy]
-  before_action :admin_user, only: [:create, :destroy, :update, :index]
+  before_action :current_user, only: [:create, :destroy]
 
   def index
     @comment = Comment.all
-    if logged_in?
-      @admin = current_user.admin?
-    end
-    if logged_in?
-      @correct_user = correct_user
-    end
   end
 
   def create
-    puts "something herer"
-    puts params
     @post = Post.find(comment_params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id #or whatever is you session name
@@ -32,11 +22,14 @@ class CommentsController < ApplicationController
   def show
     # @comment = Comment.find(params[:id])
     @comment = Comment.all
+    if logged_in?
+      @admin = current_user.admin?
+    end
   end
 
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to post_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -54,11 +47,11 @@ class CommentsController < ApplicationController
     end
   end
 
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
+  # # Confirms the correct user.
+  # def correct_user
+  #   @user = User.find(params[:id])
+  #   redirect_to(root_url) unless current_user?(@user)
+  # end
 
   # Confirms an admin user.
   def admin_user

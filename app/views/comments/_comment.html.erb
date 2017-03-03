@@ -5,10 +5,15 @@
       <%= comment.user_id%>
       <%= comment.author %>
     </div>
-    <% if @correct_user || @admin %>
-      | <%= link_to "delete", comment, method: :delete,
-                                      data: { confirm: "You sure?" } %>
-        <%= link_to "test home", root_path %>
-    <% end %>
-
+    <% if logged_in? %>
+          <% if current_user.admin? %>
+          | <%= link_to "Admin delete", comment, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+          <% elsif comment.user_id == current_user.id %>
+          | <%= link_to "delete", comment, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+              <!-- # End if current_user.admin? else if @current_user -->
+          <% end %>
+          <!-- # End if logged_in? -->
+        <% end %>
 <% end %>
