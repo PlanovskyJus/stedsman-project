@@ -1,7 +1,10 @@
+@import "foundation/components/grid";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'foundation';
 
 /* universal */
+
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
@@ -10,9 +13,12 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
-body {
-  padding-top: 60px;
+body{
+    font-size: 0;
+    margin: 0;
+    background-color: red;
 }
+body > * {font-size: 1rem;}
 
 section {
   overflow: auto;

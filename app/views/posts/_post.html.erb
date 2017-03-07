@@ -1,19 +1,19 @@
+
+
 <%= div_for post do %>
-  <div class="">
-    <strong><%= link_to post.title, post %></strong><br>
-    <sup class="text-muted">From <%= time_ago_in_words(post.created_at)%></sup><br />
-    <div class="mb pb">
-      <%= h(post.content) %>
-    </div>
-    <div class="">
-      <%= image_tag post.avatar.url %>
-    </div>
-    <div class="tags">
-      <%=raw tag_links(post.all_tags) %>
+<div class="medium-8 columns">
+  <div class="blog-post">
+    <strong><%= link_to post.title, post %></strong><small>From <%= time_ago_in_words(post.created_at)%></small><br>
+    <%= image_tag post.avatar.url %>
+    <p><%= post.content.split[0..50].join(" ") %></p>
+    <div class="callout">
+      <ul class="menu simple">
+        <li><%= raw tag_links(post.all_tags)%></li>
+        <% if @admin %>
+          <%= link_to "Delete Post", post, method: :delete,
+                                            data: { confirm: "Are you sure?"} %>
+        <% end %>
+      </ul>
     </div>
   </div>
-<% end %>
-<% if @admin %>
-  | <%= link_to "delete", post, method: :delete,
-                                data: { confirm: "You sure?" } %>
 <% end %>

@@ -18,7 +18,7 @@ gem 'record_tag_helper', '~> 1.0'
 
 gem "paperclip", "~> 5.0.0"
 
-
+gem 'foundation-rails', '~> 5.5', '>= 5.5.3.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
