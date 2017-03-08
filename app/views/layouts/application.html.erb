@@ -2,8 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= yield(:title) %> | STEDSMAN </title>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -11,16 +9,9 @@
                                           'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
 
-    <%= render partial: 'layouts/topbar' %>
-    <div class="callout large primary">
-      <div class="row column text-center">
-        <h1>Our Blog</h1>
-      </div>
-    </div>
-    <div class="row" id="content">
+
 
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
@@ -28,35 +19,8 @@
     <% end %>
     <%= yield %>
 
-<!-- The post partial will be rendered and then this will follow for the sidebar -->
 
-    <div class="medium-3 columns" data-sticky-container>
-      <div class="sticky" data-sticky data-anchor="content">
-        <h4>Categories</h4>
-        <ul>
-          <li><a href="#">Skyler</a></li>
-          <li><a href="#">Jesse</a></li>
-          <li><a href="#">Mike</a></li>
-          <li><a href="#">Holly</a></li>
-        </ul>
 
-        <h4>Authors</h4>
-        <ul>
-          <li><a href="#">Skyler</a></li>
-          <li><a href="#">Jesse</a></li>
-          <li><a href="#">Mike</a></li>
-          <li><a href="#">Holly</a></li>
-        </ul>
-      </div>
-    </div>
-    </div>
-
-    <script src="js/foundation/foundation.js"></script>
-      <script src="js/foundation/foundation.topbar.js"></script>
-     <script src="js/foundation/foundation.dropdown.js"></script>
-      <!-- Other JS plugins can be included here -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
     </script>

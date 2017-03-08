@@ -20,6 +20,8 @@ gem "paperclip", "~> 5.0.0"
 
 gem 'foundation-rails', '~> 5.5', '>= 5.5.3.2'
 
+gem 'autoprefixer-rails', '~> 6.7', '>= 6.7.4'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
