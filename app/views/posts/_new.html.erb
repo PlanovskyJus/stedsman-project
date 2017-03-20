@@ -1,4 +1,4 @@
-<div class="">
+<div class="medium-8 medium-offset-2 columns">
   <%= form_for(Post.new, remote: true) do |f| %>
     <div class="">
       <%= f.text_field :title, placeholder: "Title" %>
@@ -6,17 +6,19 @@
     <div class="">
       <%= f.text_area :content, placeholder: "Your post", rows: 5 %>
     </div>
-    <div class="">
+    <!-- <div class="">
       <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
-    </div>
+    </div> -->
     <div class="">
       <%= f.file_field :avatar %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </div>
     <div class="">
       <%= f.label :all_tags%>
-      <%= f.radio_button(:all_tags, 'tag one')%><span>Tag one</span><br>
-      <%= f.radio_button(:all_tags, 'tag TWO')%><span>Tag Two</span>
+      <!-- <%= f.radio_button(:all_tags, 'tag one')%> <span>Tag one</span><br>
+      <%= f.radio_button(:all_tags, 'tag TWO')%> <span>Tag Two</span><br> -->
+      <%= f.check_box :all_tags, {}, "checked", nil %> <span>Checkbox Tag</span><br>
+      <%= f.check_box :all_tags, {}, "numbertwo", nil %> <span>numbertwo</span>
       <!-- Add more tags here and remove the custom tags later -->
     </div>
     <div class="">
@@ -24,3 +26,4 @@
     </div>
   <% end %>
 </div>
+<div class="medium-2"></div>

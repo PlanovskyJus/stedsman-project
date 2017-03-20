@@ -12,8 +12,14 @@
 
   </head>
   <body>
+    <!-- Collapsing nav -->
+    <div class="title-bar" data-responsive-toggle="navigation-bar" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle="navigation-bar"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+
     <!-- Start Top Bar -->
-    <div class="top-bar">
+    <div class="top-bar" id="navigation-bar">
       <div class="top-bar-left">
         <ul class="menu">
           <li class="menu-text">Yeti Agency</li>
@@ -65,6 +71,7 @@
           <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
 
         <% end %>
+
         <%= yield %>
 
 

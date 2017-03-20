@@ -20,3 +20,10 @@ User.create!(name:  "Example User",
                password:              password,
                password_confirmation: password)
 end
+
+20.times do |n|
+  title = Faker::Name.name
+  content = "This is some content that I am putting here for the seed to do stuff"
+  Post.create!(title: title,
+               content: content)
+end

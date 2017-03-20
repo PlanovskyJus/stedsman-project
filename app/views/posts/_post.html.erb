@@ -1,10 +1,11 @@
 
 
 <%= div_for post do %>
-<div class="medium-8 columns">
   <div class="blog-post">
-    <strong><%= link_to post.title, post %></strong><small>From <%= time_ago_in_words(post.created_at)%></small><br>
-    <%= image_tag post.avatar.url %>
+    <strong><%= link_to post.title, post %> </strong><small>From <%= time_ago_in_words(post.created_at)%> ago</small><br>
+    <div class="post-image-holder">
+      <%= image_tag post.avatar.url, class:"post-image-size" %>
+    </div>
     <p><%= post.content.split[0..50].join(" ") %></p>
     <div class="callout">
       <ul class="menu simple">
