@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= yield(:title) %> | STEDSMAN </title>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                          'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <!-- Link below is to enable critical css for the page -->
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+  </head>
+  <body>
+
+    <%= render partial: '/layouts/header'%>
+
+        <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+
+        <div class="container">
+          <%= yield %>
+        </div>
+  </body>
+</html>

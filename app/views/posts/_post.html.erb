@@ -1,0 +1,25 @@
+<div class='post' style='border: 2px solid black'>
+  <div class='' >
+      <%= image_tag post.avatar.url %><br>
+      <strong><%= link_to post.title, post %></strong> <small>From <%= time_ago_in_words(post.created_at)%></small>
+      <br>
+      <p><%= post.body.split[0..35].join(" ") %>... <%= link_to "Read more!", post %>
+      </p>
+      <% if logged_in? %>
+        <% if current_user.admin? %>
+        <div>
+          <ul>
+              <% if logged_in? %>
+                <% if current_user.admin? %>
+                  <%= link_to "Delete Post", post, method: :delete,
+                                                    data: { confirm: "Are you sure?"} %>
+                  <%= link_to "Edit Post", edit_post_path(post) %>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        <% end %>
+  </div>
+</div>
+<!-- the container style needs to be changed in order to make the posts less girthy on the page -->

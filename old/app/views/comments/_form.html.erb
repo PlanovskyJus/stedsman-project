@@ -1,0 +1,15 @@
+<% if logged_in? %>
+<div class="">
+  <%= form_for(Comment.new) do |f| %>
+    <div class="">
+      <%= f.text_area :content %>
+      <%= f.hidden_field :post_id, :value => @post.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :author, :value => current_user.name %>
+    </div>
+    <div class="">
+      <%= f.submit "Comment"%>
+    </div>
+  <% end %>
+</div>
+<% end %>

@@ -1,0 +1,53 @@
+<div data-responsive-toggle="example-menu" data-hide-for="medium">
+  <button type="button" data-toggle="example-menu"></button>
+  <div>Menu</div>
+</div>
+
+<div>
+  <div>
+    <ul>
+        <li>
+          <a href="/">Stedsman</a>
+          <ul>
+              <li><a href="#">One</a></li>
+              <li><a href="#">Two</a></li>
+              <li><a href="#">Three</a></li>
+              <li>
+                <% if logged_in? %>
+                  <% if current_user.admin?%>
+                    <%= link_to 'New Post', new_post_path %>
+                  <% end %>
+                <% end %>
+              </li>
+          </ul>
+        </li>
+        <li><%= search_form_for @search do |f| %>
+          <li><%= f.text_field :title_cont, :placeholder => 'Search' %></li>
+          <li><%= f.submit "Search", :class => 'button' %></li>
+        <% end %></li>
+    </ul>
+  </div>
+
+  <div>
+  <ul>
+    <li>
+      <% if logged_in? %>
+          <a href="#">
+            Account
+          </a>
+          <ul>
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+            <li></li>
+            <li>
+              <%= link_to "Log out", logout_path, method: "delete" %>
+            </li>
+          </ul>
+      <% else %>
+        <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+    </li>
+  </ul>
+
+  </div>
+</div>

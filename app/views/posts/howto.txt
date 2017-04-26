@@ -1,0 +1,35 @@
+<!-- This is the form of how to search through the database -->
+<!-- Searches through what posts have in the title-->
+<!-- <fieldset class="search-field">
+  <legend>Search Our Database</legend>
+  <%= search_form_for @search do |f| %>
+    <div class="field">
+      <%= f.label :title_cont, "Title contains" %>
+      <%= f.text_field :title_cont %>
+    </div> -->
+<!-- Searches through what the tags are attached to the posts -->
+    <!-- <div class="field">
+      <%= f.label "Area of Expertise" %><br />
+      <%= f.collection_check_boxes :tags_id_in_any, Tag.all, :id, :name do |b| %>
+        <div class="collection-check-box">
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="actions"><%= f.submit "Search" %></div>
+  <% end %>
+</fieldset> -->
+
+
+
+<br>
+<!-- This is how to make a link to a specific post that has a given tag -->
+<div class="" style="visibility: hidden;">
+  <%= link_to 'thisisatag', posts_path(q: {tags_name_cont_any: "thisisatag"}) %>
+  <%= link_to 'george', posts_path(q: {tags_name_cont_any: 'george'}) %>
+</div>
+<br>
+
+<!-- <td><%= post.tags.map(&:name).sort.join(", ") %></td> -->

@@ -1,0 +1,12 @@
+<li>
+  <%= image_tag(user.uvatar.url, size: 50) %>
+  <br>
+  <%= link_to user.name, user %>
+  <br>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+  <br>
+</li>
+<br>

@@ -1,0 +1,12 @@
+<% provide(:title, 'Home') %>
+
+  <div class="container">
+    <div class="columns is-gapless">
+      <div class="column column is-three-quarters">
+        <%= render partial: @posts.reverse %>
+      </div>
+      <div class="column">
+        huh
+      </div>
+    </div>
+  </div>

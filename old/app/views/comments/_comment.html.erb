@@ -1,0 +1,19 @@
+<% @post.comments.reverse_each do |comment| %>
+  <sup class="text-muted">From <%= time_ago_in_words(comment.created_at)%></sup>
+    <div><%= comment.content %></div> <br>
+    <div class="">
+      <%= comment.user_id%>
+      <%= comment.author %>
+    </div>
+    <% if logged_in? %>
+          <% if current_user.admin? %>
+          | <%= link_to "Admin delete", comment, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+          <% elsif comment.user_id == current_user.id %>
+          | <%= link_to "delete", comment, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+              <!-- # End if current_user.admin? else if @current_user -->
+          <% end %>
+          <!-- # End if logged_in? -->
+        <% end %>
+<% end %>
