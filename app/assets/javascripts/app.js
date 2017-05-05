@@ -1,1 +1,4 @@
-$(document).foundation()
+function navToggle(){
+  console.log('asdfasdf');
+
+}

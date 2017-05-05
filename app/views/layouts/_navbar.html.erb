@@ -6,8 +6,9 @@
       </a>
       <%= active_link_to "Home", root_path, :class_active => 'is-active', :active => :exact, :class => 'nav-item is-tab is-hidden-mobile' %>
       <%= active_link_to 'New Post', new_post_path, :class_active => 'is-active', :active => :exact, :class => 'nav-item is-tab is-hidden-mobile' %>
+
     </div>
-    <span class="nav-toggle">
+    <span class="nav-toggle" onclick='navToggle()'>
       <span></span>
       <span></span>
       <span></span>

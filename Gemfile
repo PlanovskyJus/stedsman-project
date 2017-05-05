@@ -19,7 +19,6 @@ gem 'bulma-rails', '~> 0.4.0'
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 gem 'paperclip', '~> 4.1'
 
-gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

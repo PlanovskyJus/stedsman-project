@@ -6,7 +6,17 @@
         <%= render partial: @posts.reverse %>
       </div>
       <div class="column">
-        huh
+        <fieldset class="search-field">
+          <legend>Search Our Database</legend>
+          <%= search_form_for @search do |f| %>
+            <div class="field">
+              <%= f.label :title_cont, "Name contains" %>
+              <%= f.text_field :title_or_body_or_tags_name_cont %>
+            </div>
+
+            <div class="actions"><%= f.submit "Search" %></div>
+          <% end %>
+        </fieldset>
       </div>
     </div>
   </div>

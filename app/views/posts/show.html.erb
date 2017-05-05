@@ -14,6 +14,10 @@
   <%= @post.body %>
 </p>
 
+<% @post.tags.each do |p| %>
+  <%= p.name %>
+<% end %>
+
 <p>
 <%= render partial: '/comments/form' %>
 <%= render partial: '/comments/comment'%>
