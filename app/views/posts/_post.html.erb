@@ -1,7 +1,7 @@
 <div class='post' style='border: 2px solid black'>
   <div class='' >
       <%= image_tag post.avatar.url %><br>
-      <strong><%= link_to post.title, post %></strong> <small>From <%= time_ago_in_words(post.created_at)%></small>
+      <strong><%= link_to post.title, post %></strong> <small>From <%= time_ago_in_words(post.created_at)%> ago</small>
       <br>
       <p><%= post.body.split[0..35].join(" ") %>... <%= link_to "Read more!", post %>
       </p>

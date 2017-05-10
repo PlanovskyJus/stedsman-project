@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     @search = Post.search(params[:q])
     @posts = @search.result(distinct: true)
     @comment = Comment.all
+    @announcements = Announcement.all
+
+
+
   end
 
   # GET /posts/1

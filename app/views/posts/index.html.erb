@@ -2,21 +2,11 @@
 
   <div class="container">
     <div class="columns is-gapless">
-      <div class="column column is-three-quarters">
+      <div class="column is-three-quarters">
         <%= render partial: @posts.reverse %>
       </div>
       <div class="column">
-        <fieldset class="search-field">
-          <legend>Search Our Database</legend>
-          <%= search_form_for @search do |f| %>
-            <div class="field">
-              <%= f.label :title_cont, "Name contains" %>
-              <%= f.text_field :title_or_body_or_tags_name_cont %>
-            </div>
-
-            <div class="actions"><%= f.submit "Search" %></div>
-          <% end %>
-        </fieldset>
+        <%= render partial: @announcements.reverse %>
       </div>
     </div>
   </div>

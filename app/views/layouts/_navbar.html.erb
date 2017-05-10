@@ -16,6 +16,12 @@
     <div class="nav-right nav-menu">
       <%= active_link_to "Home", root_path, :class => 'nav-item is-tab is-hidden-tablet' %>
       <%= active_link_to 'New Post', new_post_path, :class => 'nav-item is-tab is-hidden-tablet' %>
+      <div class='nav-item is-hidden-mobile'>
+      <%= search_form_for @search do |f|  %>
+          <%= f.text_field :title_or_body_or_tags_name_cont, placeholder: ' Search', :class => 'is-tab ' %>
+          <%= f.submit "Search", :class => 'is-tab ' %>
+      <% end %>
+      </div>
       <% if logged_in? %>
         <%= active_link_to 'Profile', current_user, :class => 'nav-item is-tab is-hidden-tablet' %>
         <%= active_link_to 'Settings', edit_user_path(current_user),:class => 'nav-item is-tab is-hidden-tablet' %>
@@ -26,7 +32,7 @@
           </figure>
           Profile
         <% end %>
-        <%= active_link_to 'Settings', edit_user_path(current_user),:class => 'nav-item is-tab is-hidden-mobile' %>
+        <%= active_link_to 'Settings', edit_user_path(current_user),:class => 'nav-item is-tab is-hidden-mobile', :class_active => 'is-active', :active => :exact %>
       <% end %>
       <% if logged_in? %>
         <%= active_link_to 'Log Out', logout_path, method: 'delete', :class => 'nav-item is-tab' %>

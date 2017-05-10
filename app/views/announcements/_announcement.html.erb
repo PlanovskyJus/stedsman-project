@@ -1,0 +1,21 @@
+<div class='post'>
+  <div>
+<% if announcement.active == true %>
+<h1>
+  <strong><%= announcement.title %></strong> <small>From <%= time_ago_in_words(announcement.created_at)%> ago</small>
+</h1>
+<h3>
+  <%= announcement.body.split[0..75].join(' ') %>
+  <% if announcement.body.length > 75 %>
+    <span> ...</span><%= link_to 'Read Full', announcement %>
+  <% end %>
+</h3>
+<legend></legend>
+<% end %>
+
+<%= calculate_seconds(announcement) %>
+
+
+
+  </div>
+</div>
